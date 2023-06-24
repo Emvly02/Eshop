@@ -1,0 +1,65 @@
+Noch machen:
+
+- Rechnung weiter machen
+- Massenartikelgut -> Habe ich eigentlich schon gemacht, ist glaube ich auf dem Laptop in Bremen!
+- Warenkorbmenü Artikel anzahl ändern? Muss das überhaupt?
+
+
+Fehler:
+
+    HAUPTMENÜ
+    - Bei Mitarbeitermenü -> Artikel löschen d -> .InputMismatchException
+        -> Vielleicht wegen dem Floatwert?
+    - Registrierung klappt, Kunde wird in Kundenbestand gespeichert aber beim login wird angezeigt, dass der Kunde nicht
+      in der Liste ist, also es wird nur angezeigt, dass ein Kunde drin ist statt 2
+    - Bei Artikelliste ausgeben, wird der Bestand nicht mit ausgegeben?
+
+    MITARBEITERMENÜ
+    - Artikel hinzufügen bei Preis, wieder wegen float wert?
+    - neuen Mitarbeiter registrieren = beim Passwort eingeben, überspringt der das einfach und geht zur nächsten Frage
+
+    KUNDENMENÜ
+    -
+
+    WARENKORBMENÜ
+    - Bei k = kaufen, funktioniert, aber es wird Name und ID ausgegeben & gesamtpreis, aber nicht die Warenkorbliste
+      sondern nur die Speicheradresse?
+      --> vielleicht andere Methode in Shop wo nicht der Warenkorb ausgegeben wird sondern der Inhalt als Liste
+          weil Warenkorb ist eigentlich ein Objekt! => korb.getInhalt()
+    - Anzahl eines Artikels im Warenkorb ändern
+
+
+
+
+
+Was funktioniert:
+
+    HAUPTMENÜ
+    - Kunden login wenn vorher erstellt (ohne registrierung)
+    - Mitarbeiter Login
+    - Artikelliste ausgeben (Alle artikel ausgeben) a
+
+    MITARBEITERMENÜ
+
+
+    KUNDENMENÜ
+    - Artikel finden
+    - Artikel in Warenkorb legen
+
+
+    WARENKORBMENÜ
+    - Warenkorb leeren - c
+    - Artikel aus Korb entfernen sollte auch funktionieren (Als ich es probiert habe, war der korb leer) - e
+    -
+
+
+
+Naufal:
+
+1. "Um alle Artikel zu sehen, drücken sie a" in Menue (CUI Zeile: 170 und 43)
+    - noch die Massengutartikelliste zusätzlich ausgeben lassen
+2. "Um einen Artikel zu ihrem Warenkorb hinzuzufuegen, drücken sie h" in Kundenmenue (CUI 177 & 291)
+    - Unterschied machen, wenn man Massengut oder Artikel hinzufügt (Massengut zb: Packung Cola Dosen = 6 Dosen, also wenn Anzahl
+        = 1 dann werden 6 Dosen bzw 1 Packung in den Warenkorb getan, sonst geht es nicht = Exception)
+3. "Wenn sie einen Artikel in ihrem Warenkorb entfernen möchten,drücken sie e" in Warenkorbmenue (CUI 200, 222)
+    - Unterschied ob Artikel oder MassengutArtikel

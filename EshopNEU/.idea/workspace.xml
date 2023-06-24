@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e4e9f610-ac30-4235-a0b8-6d8944a45e73" name="Changes" comment="FAST ENDE" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PepDO7MgFK13zmR7u3aIABaNxn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Emily/OneDrive/Dokumente/Studium/Semester2/Programmieren/EshopNEU",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Emily\IdeaProjects\Eshop2" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bib.main.entities" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ShopCUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bib.main.ui.CUI.ShopCUI" />
+      <module name="Eshop2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bib.main.ui.CUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ShopCUI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4e9f610-ac30-4235-a0b8-6d8944a45e73" name="Changes" comment="" />
+      <created>1683827282139</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683827282139</updated>
+    </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1683828332411</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683828332411</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2">
+      <created>1683829152703</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683829152703</updated>
+    </task>
+    <task id="LOCAL-00003" summary="3">
+      <created>1683830327566</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683830327566</updated>
+    </task>
+    <task id="LOCAL-00004" summary="4">
+      <created>1683830787255</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683830787255</updated>
+    </task>
+    <task id="LOCAL-00005" summary="5">
+      <created>1683831134245</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683831134245</updated>
+    </task>
+    <task id="LOCAL-00006" summary="5">
+      <created>1683831448686</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683831448686</updated>
+    </task>
+    <task id="LOCAL-00007" summary="5">
+      <created>1684005988130</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684005988130</updated>
+    </task>
+    <task id="LOCAL-00008" summary="5">
+      <created>1684072689450</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684072689450</updated>
+    </task>
+    <task id="LOCAL-00009" summary="5">
+      <created>1684271192422</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684271192422</updated>
+    </task>
+    <task id="LOCAL-00010" summary="5">
+      <created>1684272860877</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684272860877</updated>
+    </task>
+    <task id="LOCAL-00011" summary="5">
+      <created>1684273531814</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684273531814</updated>
+    </task>
+    <task id="LOCAL-00012" summary="5">
+      <created>1684275921825</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684275921825</updated>
+    </task>
+    <task id="LOCAL-00013" summary="5">
+      <created>1684275972339</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684275972339</updated>
+    </task>
+    <task id="LOCAL-00014" summary="FAST ENDE">
+      <created>1684286623947</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684286623947</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <MESSAGE value="2" />
+    <MESSAGE value="3" />
+    <MESSAGE value="4" />
+    <MESSAGE value="5" />
+    <MESSAGE value="FAST ENDE" />
+    <option name="LAST_COMMIT_MESSAGE" value="FAST ENDE" />
+  </component>
+</project>

@@ -1,0 +1,20 @@
+
+Für unterscheiden beim Login ob Kunde oder Mitarbeiter, hat aber nicht funktioniert (Kunden Menue oder Mitarbeiter menue wurde nicht aufgerufen)
+
+if(eshop.gibtEsDenKunden((Kunde)eingeloggterBenutzer)){
+					kundenMenue();
+					String auswahl = kundenMenue();
+					eingeloggterKunde = (Kunde)eingeloggterBenutzer;
+					verarbeiteKundenEingabe(auswahl);
+
+				}
+				else if (eingeloggterBenutzer instanceof Mitarbeiter) {
+					mitarbeiterMenue();
+					String auswahl = mitarbeiterMenue();
+					eingeloggterMitarbeiter = (Mitarbeiter)eingeloggterBenutzer;
+					verarbeiteMitarbeiterEingabe(auswahl);
+				}
+
+				else{
+					System.out.println("Error");
+				}
