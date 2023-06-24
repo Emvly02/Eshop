@@ -1,8 +1,8 @@
 package bib.main.ui.CUI.gui.panels;
 
-import bib.local.domain.Bibliothek;
-import bib.local.domain.exceptions.BuchExistiertBereitsException;
-import bib.local.entities.Buch;
+import bib.main.domain.Shop;
+import bib.main.domain.exceptions.ArtikelExistiertSchonException;
+import bib.main.entities.Artikel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,28 +10,29 @@ import java.awt.*;
 // Wichtig: Das AddBookPanel _ist ein_ Panel und damit auch eine Component; 
 // es kann daher in das Layout eines anderen Containers 
 // (in unserer Anwendung des Frames) eingefügt werden.
-public class AddBookPanel extends JPanel {
+public class AddArtikelPanel extends JPanel {
 
 	// Über dieses Interface übermittelt das AddBookPanel
 	// ein neu hinzugefügtes Buch an einen Empfänger.
 	// In unserem Fall ist der Empfänger die BibGuiMitKomponenten,
 	// die dieses Interface implementiert und auf ein neue hinzugefügtes
 	// Buch reagiert, indem sie die Bücherliste aktualisiert.	
-	public interface AddBookListener {
-		public void onBookAdded(Buch buch);
+	public interface AddArtikelListener {
+		public void onArtikelAdded(Artikel artikel);
 	}
 
 	
-	private Bibliothek bib = null;
-	private AddBookListener addBookListener = null;
+	private Shop eshop = null;
+	private AddArtikelListener addArtikelListener = null;
 
 	private JButton hinzufuegenButton;
-	private JTextField nummerTextFeld = null;
-	private JTextField titelTextFeld = null;
+	private JTextField artikelnummerTextFeld = null;
+	private JTextField bezeichnungTextFeld = null;
+	private JTextField preisTextFeld = null;
 
-	public AddBookPanel(Bibliothek bibliothek, AddBookListener addBookListener) {
-		bib = bibliothek;
-		this.addBookListener = addBookListener;
+	public AddArtikelPanel(Shop eshop, AddArtikelListener addArtikelListener) {
+		this.eshop = eshop;
+		this.addArtikelListener = addArtikelListener;
 
 		setupUI();
 
@@ -49,12 +50,16 @@ public class AddBookPanel extends JPanel {
 		Box.Filler filler = new Box.Filler(borderMinSize, borderPrefSize, borderMaxSize);
 		add(filler);
 
-		nummerTextFeld = new JTextField();
-		titelTextFeld = new JTextField();
-		add(new JLabel("Nummer:"));
-		add(nummerTextFeld);
-		add(new JLabel("Titel:"));
-		add(titelTextFeld);
+		artikelnummerTextFeld = new JTextField();
+		bezeichnungTextFeld = new JTextField();
+		preisTextFeld = new JTextField();
+
+		add(new JLabel("Artikelnummer:"));
+		add(artikelnummerTextFeld);
+		add(new JLabel("Bezeichnung:"));
+		add(bezeichnungTextFeld);
+		add(new JLabel("Preis:"));
+		add(preisTextFeld);
 
 		// Abstandhalter ("Filler") zwischen letztem Eingabefeld und Add-Button
 		Dimension fillerMinSize = new Dimension(5, 20);
@@ -86,22 +91,25 @@ public class AddBookPanel extends JPanel {
 	}
 
 	private void buchEinfügen() {
-		String nummer = nummerTextFeld.getText();
-		String titel = titelTextFeld.getText();
+		String artikelnummer = artikelnummerTextFeld.getText();
+		String bezeichnung = bezeichnungTextFeld.getText();
+		String preis = preisTextFeld.getText();
 
-		if (!nummer.isEmpty() && !titel.isEmpty()) {
+		if (!artikelnummer.isEmpty() && !bezeichnung.isEmpty()) {
 			try {
-				int nummerAlsInt = Integer.parseInt(nummer);
-				Buch buch = bib.fuegeBuchEin(titel, nummerAlsInt);
-				nummerTextFeld.setText("");
-				titelTextFeld.setText("");
+				int artikelnummerAlsInt = Integer.parseInt(artikelnummer);
+				float preisAlsFloat = Float.parseFloat(preis);
+
+					Artikel artikel = eshop.fuegeArtikelEin(bezeichnung, artikelnummerAlsInt, preisAlsFloat);
+					artikelnummerTextFeld.setText("");
+					bezeichnungTextFeld.setText("");
 
 				// Am Ende Listener, d.h. unseren Frame benachrichtigen:
-				addBookListener.onBookAdded(buch);
+				addArtikelListener.onArtikelAdded(artikel);
 			} catch (NumberFormatException nfe) {
 				System.err.println("Bitte eine Zahl eingeben.");
-			} catch (BuchExistiertBereitsException bebe) {
-				System.err.println(bebe.getMessage());
+			} catch (ArtikelExistiertSchonException a) {
+				System.err.println(a.getMessage());
 			} 
 		}
 	}

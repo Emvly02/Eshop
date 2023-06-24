@@ -1,9 +1,10 @@
 package bib.main.ui.CUI.gui;
 
 import bib.main.domain.Shop;
-import bib.main.ui.CUI.gui.panels.AddBookPanel;
-import bib.main.ui.CUI.gui.panels.BooksTablePanel;
-import bib.main.ui.CUI.gui.panels.SearchBooksPanel;
+import bib.main.entities.Artikel;
+import bib.main.ui.CUI.gui.panels.AddArtikelPanel;
+import bib.main.ui.CUI.gui.panels.ArtikelTablePanel;
+import bib.main.ui.CUI.gui.panels.SearchArtikelPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,16 +13,16 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
 
-public class BibGuiMitKomponenten extends JFrame
-		implements AddBookPanel.AddBookListener,
-		SearchBooksPanel.SearchResultListener {
+public class EshopGuiMitKomponenten extends JFrame
+		implements AddArtikelPanel.AddArtikelListener,
+		SearchArtikelPanel.SearchResultListener {
 
 	private Shop eshop;
 
-	private SearchBooksPanel searchPanel;
-	private AddBookPanel addPanel;
+	private SearchArtikelPanel searchPanel;
+	private AddArtikelPanel addPanel;
 //	private BooksListPanel booksPanel;
-	private BooksTablePanel booksPanel;
+	private ArtikelTablePanel artikelPanel;
 
 	private JTextField nummerTextFeld = null;
 	private JTextField titelTextFeld = null;
@@ -31,11 +32,11 @@ public class BibGuiMitKomponenten extends JFrame
 	private JList buecherListe = null;
 	private JTable buecherTabelle = null;
 
-	public BibGuiMitKomponenten(String titel) {
+	public EshopGuiMitKomponenten(String titel) {
 		super(titel);
 
 		try {
-			eshop = new Bibliothek("BIB");
+			eshop = new Shop("ESHOP");
 
 //			// Code für Umschaltung des Look-and-Feels:
 //			// (Einfach mal ausprobieren!)
@@ -75,17 +76,17 @@ public class BibGuiMitKomponenten extends JFrame
 		this.setLayout(new BorderLayout());
 
 		// North
-		searchPanel = new SearchBooksPanel(eshop, this);
+		searchPanel = new SearchArtikelPanel(eshop, this);
 
 		// West
-		addPanel = new AddBookPanel(eshop, this);
+		addPanel = new AddArtikelPanel(eshop, this);
 
 		// Center
-		List<Buch> buecher = eshop.gibAlleBuecher();
+		List<Artikel> artikel = eshop.gibAlleArtikel();
 		// (wahlweise Anzeige als Liste oder Tabelle)
 //		booksPanel = new BooksListPanel(buecher);
-		booksPanel = new BooksTablePanel(buecher);
-		JScrollPane scrollPane = new JScrollPane(booksPanel);
+		artikelPanel = new ArtikelTablePanel(artikel);
+		JScrollPane scrollPane = new JScrollPane(artikelPanel);
 		scrollPane.setBorder(BorderFactory.createTitledBorder("Bücher"));
 
 		// "Zusammenbau" in BorderLayout des Frames
@@ -108,7 +109,7 @@ public class BibGuiMitKomponenten extends JFrame
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				BibGuiMitKomponenten gui = new BibGuiMitKomponenten("Bibliothek");
+				EshopGuiMitKomponenten gui = new EshopGuiMitKomponenten("Bibliothek");
 			}
 		});
 		
@@ -124,10 +125,10 @@ public class BibGuiMitKomponenten extends JFrame
 	 * @see bib.local.ui.gui.panels.AddBookPanel.AddBookListener#onBookAdded(bib.local.entities.Buch)
 	 */
 	@Override
-	public void onBookAdded(Buch buch) {
+	public void onArtikelAdded(Artikel artikel) {
 		// Ich lade hier einfach alle Bücher neu und lasse sie anzeigen
-		List<Buch> buecher = eshop.gibAlleBuecher();
-		booksPanel.updateBooksList(buecher);
+		List<Artikel> artikels = eshop.gibAlleArtikel();
+		artikelPanel.updateArtikelList(artikels);
 	}
 
 	/*
@@ -138,8 +139,8 @@ public class BibGuiMitKomponenten extends JFrame
 	 * @see bib.local.ui.gui.swing.panels.SearchBooksPanel.SearchResultListener#onSearchResult(java.util.List)
 	 */
 	@Override
-	public void onSearchResult(List<Buch> buecher) {
-		booksPanel.updateBooksList(buecher);
+	public void onSearchResult(List<Artikel> artikels) {
+		artikelPanel.updateArtikelList(artikels);
 	}
 
 
@@ -186,7 +187,7 @@ public class BibGuiMitKomponenten extends JFrame
 			switch (e.getActionCommand()) {
 				case "Save":
 					try {
-						eshop.schreibeBuecher();
+						eshop.schreibeArtikel();
 					} catch (IOException ex) {
 						throw new RuntimeException(ex);
 					}
@@ -195,8 +196,8 @@ public class BibGuiMitKomponenten extends JFrame
 					// Nur "this" ginge nicht, weil "this" auf das FileMenu-Objekt zeigt.
 					// "BibGuiAusVL.this" zeigt auf das dieses (innere) FileMenu-Objekt
 					// umgebende Objekt der Klasse BibGuiAusVL.
-					BibGuiMitKomponenten.this.setVisible(false);
-					BibGuiMitKomponenten.this.dispose();
+					EshopGuiMitKomponenten.this.setVisible(false);
+					EshopGuiMitKomponenten.this.dispose();
 					System.exit(0);
 
 			}

@@ -2,6 +2,9 @@ package bib.main.ui.CUI.gui.panels;
 
 import bib.local.domain.Bibliothek;
 import bib.local.entities.Buch;
+import bib.main.domain.Shop;
+import bib.main.domain.exceptions.ArtikelExistiertNicht;
+import bib.main.entities.Artikel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +15,7 @@ import java.util.List;
 // Wichtig: Das SearchBooksPanel _ist ein_ Panel und damit auch eine Component;
 // es kann daher in das Layout eines anderen Containers 
 // (in unserer Anwendung des Frames) eingefügt werden.
-public class SearchBooksPanel extends JPanel {
+public class SearchArtikelPanel extends JPanel {
 
 	// Über dieses Interface übermittelt das SearchBooksPanel
 	// Suchergebnisse an einen Empfänger.
@@ -20,17 +23,17 @@ public class SearchBooksPanel extends JPanel {
 	// die dieses Interface implementiert und auf ein neues
 	// Suchergebnis reagiert, indem sie die Bücherliste aktualisiert.
 	public interface SearchResultListener {
-		void onSearchResult(List<Buch> buecher);
+		void onSearchResult(List<Artikel> artikel);
 	}
 	
 	
-	private Bibliothek bib = null;
+	private Shop eshop = null;
 	private JTextField searchTextField;
 	private JButton searchButton = null;
 	private SearchResultListener searchResultListener;
 	
-	public SearchBooksPanel(Bibliothek bibliothek, SearchResultListener searchResultListener) {
-		bib = bibliothek;
+	public SearchArtikelPanel(Shop eshop, SearchResultListener searchResultListener) {
+		this.eshop = eshop;
 		this.searchResultListener = searchResultListener;
 
 		setupUI();
@@ -84,13 +87,19 @@ public class SearchBooksPanel extends JPanel {
 		public void actionPerformed(ActionEvent ae) {
 			if (ae.getSource().equals(searchButton)) {
 				String suchbegriff = searchTextField.getText();
-				List<Buch> suchErgebnis;
+				List<Artikel> suchErgebnis;
 				if (suchbegriff.isEmpty()) {
-					suchErgebnis = bib.gibAlleBuecher();
+					suchErgebnis = eshop.gibAlleArtikel();
 				} else {
-					suchErgebnis = bib.sucheNachTitel(suchbegriff);
+					try {
+						suchErgebnis = eshop.sucheNachArtikel(suchbegriff);
+						searchResultListener.onSearchResult(suchErgebnis);
+					}
+					catch(ArtikelExistiertNicht n){
+						System.err.println(n.getMessage());
+					}
 				}
-				searchResultListener.onSearchResult(suchErgebnis);
+				//searchResultListener.onSearchResult(suchErgebnis);
 			}
 		}
 	}

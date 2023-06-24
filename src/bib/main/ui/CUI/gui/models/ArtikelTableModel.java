@@ -6,13 +6,13 @@ import javax.swing.table.AbstractTableModel;
 import java.util.List;
 import java.util.Vector;
 
-public class ArtikelTable extends AbstractTableModel  {
+public class ArtikelTableModel extends AbstractTableModel  {
 
     private List<Artikel> artikel;
     private String[] spaltenNamen = { "Artikelnummer","Bezeichnung", "verfügbar" };
 
     
-    public ArtikelTable(List<Artikel> aktuelleArtikel) {
+    public ArtikelTableModel(List<Artikel> aktuelleArtikel) {
     	super(); 
     	// Ich erstelle eine Kopie der Bücherliste,
     	// damit beim Aktualisieren (siehe Methode setBooks())
