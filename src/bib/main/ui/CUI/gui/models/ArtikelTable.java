@@ -1,29 +1,29 @@
 package bib.main.ui.CUI.gui.models;
 
-import bib.local.entities.Buch;
+import bib.main.entities.Artikel;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 import java.util.Vector;
 
-public class BuecherTableModel extends AbstractTableModel  {
+public class ArtikelTable extends AbstractTableModel  {
 
-    private List<Buch> buecher;
-    private String[] spaltenNamen = { "Nummer","Titel", "verfügbar" };
+    private List<Artikel> artikel;
+    private String[] spaltenNamen = { "Artikelnummer","Bezeichnung", "verfügbar" };
 
     
-    public BuecherTableModel(List<Buch> aktuelleBuecher) {
+    public ArtikelTable(List<Artikel> aktuelleArtikel) {
     	super(); 
     	// Ich erstelle eine Kopie der Bücherliste,
     	// damit beim Aktualisieren (siehe Methode setBooks())
     	// keine unerwarteten Seiteneffekte entstehen.
-    	buecher = new Vector<Buch>();
-    	buecher.addAll(aktuelleBuecher);
+    	artikel = new Vector<Artikel>();
+    	artikel.addAll(aktuelleArtikel);
     }
 
-    public void setBooks(List<Buch> aktuelleBuecher){
-        buecher.clear();
-        buecher.addAll(aktuelleBuecher);
+    public void setArtikel(List<Artikel> aktuelleArtikel){
+        artikel.clear();
+        artikel.addAll(aktuelleArtikel);
         fireTableDataChanged();
     }
 
@@ -38,7 +38,7 @@ public class BuecherTableModel extends AbstractTableModel  {
     
     @Override
     public int getRowCount() {
-        return buecher.size();
+        return artikel.size();
     }
 
     @Override
@@ -53,14 +53,14 @@ public class BuecherTableModel extends AbstractTableModel  {
     
     @Override
     public Object getValueAt(int row, int col) {
-        Buch gewaehltesBuch = buecher.get(row);
+        Artikel gewaehlterArtikel = artikel.get(row);
         switch (col) {
             case 0:
-                return gewaehltesBuch.getNummer();
+                return gewaehlterArtikel.getArtikelNr();
             case 1:
-                return gewaehltesBuch.getTitel();
+                return gewaehlterArtikel.getBezeichnung();
             case 2:
-                return gewaehltesBuch.isVerfuegbar();
+                return gewaehlterArtikel.istVerfuegbar();
             default:
                 return null;
         }

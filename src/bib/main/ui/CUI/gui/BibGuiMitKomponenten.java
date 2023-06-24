@@ -1,26 +1,22 @@
 package bib.main.ui.CUI.gui;
 
-import bib.local.domain.Bibliothek;
-import bib.local.domain.exceptions.BuchExistiertBereitsException;
-import bib.local.entities.Buch;
-import bib.local.ui.gui.panels.AddBookPanel;
-import bib.local.ui.gui.panels.BooksListPanel;
-import bib.local.ui.gui.panels.BooksTablePanel;
-import bib.local.ui.gui.panels.SearchBooksPanel;
+import bib.main.domain.Shop;
+import bib.main.ui.CUI.gui.panels.AddBookPanel;
+import bib.main.ui.CUI.gui.panels.BooksTablePanel;
+import bib.main.ui.CUI.gui.panels.SearchBooksPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 public class BibGuiMitKomponenten extends JFrame
 		implements AddBookPanel.AddBookListener,
 		SearchBooksPanel.SearchResultListener {
 
-	private Bibliothek bib;
+	private Shop eshop;
 
 	private SearchBooksPanel searchPanel;
 	private AddBookPanel addPanel;
@@ -39,7 +35,7 @@ public class BibGuiMitKomponenten extends JFrame
 		super(titel);
 
 		try {
-			bib = new Bibliothek("BIB");
+			eshop = new Bibliothek("BIB");
 
 //			// Code für Umschaltung des Look-and-Feels:
 //			// (Einfach mal ausprobieren!)
@@ -79,13 +75,13 @@ public class BibGuiMitKomponenten extends JFrame
 		this.setLayout(new BorderLayout());
 
 		// North
-		searchPanel = new SearchBooksPanel(bib, this);
+		searchPanel = new SearchBooksPanel(eshop, this);
 
 		// West
-		addPanel = new AddBookPanel(bib, this);
+		addPanel = new AddBookPanel(eshop, this);
 
 		// Center
-		List<Buch> buecher = bib.gibAlleBuecher();
+		List<Buch> buecher = eshop.gibAlleBuecher();
 		// (wahlweise Anzeige als Liste oder Tabelle)
 //		booksPanel = new BooksListPanel(buecher);
 		booksPanel = new BooksTablePanel(buecher);
@@ -130,7 +126,7 @@ public class BibGuiMitKomponenten extends JFrame
 	@Override
 	public void onBookAdded(Buch buch) {
 		// Ich lade hier einfach alle Bücher neu und lasse sie anzeigen
-		List<Buch> buecher = bib.gibAlleBuecher();
+		List<Buch> buecher = eshop.gibAlleBuecher();
 		booksPanel.updateBooksList(buecher);
 	}
 
@@ -190,7 +186,7 @@ public class BibGuiMitKomponenten extends JFrame
 			switch (e.getActionCommand()) {
 				case "Save":
 					try {
-						bib.schreibeBuecher();
+						eshop.schreibeBuecher();
 					} catch (IOException ex) {
 						throw new RuntimeException(ex);
 					}
