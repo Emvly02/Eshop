@@ -5,7 +5,7 @@ import bib.main.entities.Artikel;
 import javax.swing.*;
 import java.util.Collections;
 
-// Wichtig: Das BooksListPanel _ist eine_ JList und damit eine Component;
+// Wichtig: Das ArtikelListPanel _ist eine_ JList und damit eine Component;
 // es kann daher in das Layout eines anderen Containers
 // (in unserer Anwendung des Frames) eingefügt werden.
 public class ArtikelListPanel extends JList<Artikel> {

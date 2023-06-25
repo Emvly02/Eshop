@@ -1,7 +1,5 @@
 package bib.main.ui.CUI.gui.panels;
 
-import bib.local.domain.Bibliothek;
-import bib.local.entities.Buch;
 import bib.main.domain.Shop;
 import bib.main.domain.exceptions.ArtikelExistiertNicht;
 import bib.main.entities.Artikel;
