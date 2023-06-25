@@ -1,4 +1,4 @@
 package bib.main.domain.exceptions;
 
-public class MassengutArtikelExistiertNicht {
+public class MassengutArtikelExistiertNicht extends Exception {
 }

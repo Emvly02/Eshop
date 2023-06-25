@@ -1,9 +1,9 @@
-package bib.main.ui.CUI.MyGUI;
+package bib.main.ui.CUI.GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class ButtonPanel extends JPanel {
+public class ButtonPanelHauptmenue extends JPanel {
     private JButton btnRegistrieren;
     private JButton btnLogin;
     private JButton btnArtikelliste;
@@ -13,7 +13,7 @@ public class ButtonPanel extends JPanel {
 
     private ActionListener buttonClickListener;
 
-    public ButtonPanel(ActionListener listener) {
+    public ButtonPanelHauptmenue(ActionListener listener) {
         buttonClickListener = listener;
         initComponents();
     }
@@ -29,7 +29,7 @@ public class ButtonPanel extends JPanel {
         btnRegistrieren.addActionListener(buttonClickListener);
         add(btnRegistrieren);
 
-        btnLogin = new JButton("Login Kunde");
+        btnLogin = new JButton("Login");
         btnLogin.addActionListener(buttonClickListener);
         add(btnLogin);
 

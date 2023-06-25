@@ -14,6 +14,7 @@ public class Shop {
 	private BenutzerVerwaltung benutzerVW;
 	private ShoppingService shoppingService;
 	private MassengutArtikelVerwaltung massengutVW;
+	private Benutzer benutzer;
 
 
 	public Shop(String datei) {
@@ -39,7 +40,7 @@ public class Shop {
 		return artikelVW.sucheArtikel(artikel);
 	}
 
-	public List<MassengutArtikel> sucheNachMassengutArtikel(String artikel) throws MassengutArtikelGibtEsNicht {
+	public List<MassengutArtikel> sucheNachMassengutArtikel(String artikel) throws MassengutArtikelExistiertNicht {
 		return massengutVW.sucheMassengutArtikel(artikel);
 	}
 
@@ -61,8 +62,9 @@ public class Shop {
 		artikelVW.loeschen(a);
 	}
 
+
 	public Benutzer Benutzereinloggen(String benutzername, String passw) throws LoginFehlgeschlagen {
-		Benutzer benutzer = benutzerVW.einloggen(benutzername, passw);
+		benutzer = benutzerVW.einloggen(benutzername, passw);
 		return benutzer;
 	}
 
@@ -127,14 +129,9 @@ public class Shop {
 		}
 	}
 
-	/*public void massengutAufnehmen(String bezeichnung, int artikelNr){
-		MassengutArtikel m = new MassengutArtikel();
-		massengutVW.MassengutAufnehmen(mArtikel);
+	public Benutzer getBenutzer() {
+		return benutzer;
 	}
-
-	 */
-
-	//Kunde Rechnung noch machen & Ereignis speichern
 
 
 }

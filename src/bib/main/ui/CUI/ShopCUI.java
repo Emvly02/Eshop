@@ -282,7 +282,7 @@ public class ShopCUI {
 					MassengutArtikelListe = eshop.sucheNachMassengutArtikel(bezeichnung);
 					gibMassengutArtikellisteAus(MassengutArtikelListe);
 				}
-				catch(MassengutArtikelGibtEsNicht m){
+				catch(MassengutArtikelExistiertNicht m){
 					System.out.println(m.getMessage());
 				}
 
